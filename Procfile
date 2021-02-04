@@ -1,1 +1,1 @@
-web: sh create_config.sh && streamlit run econ_dt_st.py
+web: sh create_config.sh && streamlit run econ_db_st.py
