@@ -4,8 +4,6 @@ import matplotlib.pyplot as plt
 import pandas as pd
 import numpy as np
 
-from dateutil.relativedelta import relativedelta
-
 from statsmodels.graphics.tsaplots import plot_acf
 from statsmodels.graphics.tsaplots import plot_pacf
 from statsmodels.tsa.arima.model import ARIMA
@@ -52,7 +50,7 @@ AR = st.slider('Number of Autoregressive terms', min_value=0, max_value=10, valu
 MA = st.slider('Number of Moving Average terms', min_value=0, max_value=10)
 I = st.slider('Order of Integration', min_value=0, max_value=3)
 
-model = ARIMA(data, order=(AR, MA, I))
+model = ARIMA(data, order=(AR, I, MA))
 res = model.fit()
 st.markdown(res.summary().as_html(), unsafe_allow_html=True)
 
